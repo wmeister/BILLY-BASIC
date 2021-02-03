@@ -1,11 +1,34 @@
 // BillyBasic.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
+#include <cstdio>
 
-#include <iostream>
+#define DEBUG true
+
+char memory[3583];
+char input[80];
+
+void read()
+{
+    printf("READY.\n");
+    gets_s(input);
+    printf("?SYNTAX\n ERROR\n");
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    printf("**** BILLY BASIC V1 ****\n%i BYTES FREE\n", sizeof(memory)/sizeof(memory[0]));
+
+    if (DEBUG)
+    {
+        read();
+    }
+    else
+    {
+        for (;;)
+        {
+            read();
+        }
+    }
 }
 
 void BillyBasic()
