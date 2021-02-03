@@ -5,12 +5,12 @@
 #define DEBUG true
 
 char memory[3583];
-char input[80];
+char input[82]; // max 80 + newline + null terminator
 
 void read()
 {
     printf("READY.\n");
-    gets_s(input);
+    fgets(input, sizeof(input), stdin);
     printf("?SYNTAX\n ERROR\n");
 }
 
