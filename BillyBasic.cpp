@@ -10,7 +10,7 @@ char input[82]; // max 80 + newline + null terminator
 void read()
 {
     printf("READY.\n");
-    fgets(input, sizeof(input), stdin);
+    scanf("%s", input);
     printf("?SYNTAX\n ERROR\n");
 }
 
