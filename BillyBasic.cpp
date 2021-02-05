@@ -2,8 +2,11 @@
 //
 #include <cstdio>
 #include <algorithm>
-#include "common/string.h"
 #include <string>
+#include <pystring.h>
+#include <boost/algorithm/string/trim.hpp>
+
+#include "common/string.h"
 
 using std::string;
 
@@ -13,11 +16,16 @@ void read()
 {
     char input[80]; // max input length
     string uc_input;
+    std::vector<string> words;
 
     printf("READY.\n");
+
     gets_s(input);
+    boost::trim(uc_input);
     uc_input = common::string::upcase(input);
-    printf(">>%s\n", uc_input.c_str());
+    pystring::split(uc_input, words);
+    
+    
     printf("?SYNTAX\n ERROR\n");
 }
 
