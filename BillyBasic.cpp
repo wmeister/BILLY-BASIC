@@ -1,16 +1,22 @@
 // BillyBasic.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 #include <cstdio>
+#include <algorithm>
+#include <string>
 
-#define DEBUG true
+using std::string;
+using std::transform;
 
 char memory[3583];
-char input[82]; // max 80 + newline + null terminator
+char input[80]; // max input length
 
 void read()
 {
     printf("READY.\n");
-    scanf("%s", input);
+    gets_s(input);
+    string uc_input = string(input, sizeof(input));
+    transform(uc_input.begin(), uc_input.end(), uc_input.begin(), ::toupper);
+    printf("3: %s\n", uc_input.c_str());
     printf("?SYNTAX\n ERROR\n");
 }
 
@@ -18,16 +24,9 @@ int main()
 {
     printf("**** BILLY BASIC V1 ****\n%i BYTES FREE\n", sizeof(memory)/sizeof(memory[0]));
 
-    if (DEBUG)
+    for (;;)
     {
         read();
-    }
-    else
-    {
-        for (;;)
-        {
-            read();
-        }
     }
 }
 
