@@ -2,10 +2,7 @@
 //
 #include <cstdio>
 #include <algorithm>
-#include <string>
-
-using std::string;
-using std::transform;
+#include "common/string.h"
 
 char memory[3583];
 char input[80]; // max input length
@@ -14,9 +11,8 @@ void read()
 {
     printf("READY.\n");
     gets_s(input);
-    string uc_input = string(input, sizeof(input));
-    transform(uc_input.begin(), uc_input.end(), uc_input.begin(), ::toupper);
-    printf("3: %s\n", uc_input.c_str());
+    input = common::string::upcase(input);
+    printf("3: %s\n", input);
     printf("?SYNTAX\n ERROR\n");
 }
 
