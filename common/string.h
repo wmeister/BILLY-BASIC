@@ -1,7 +1,8 @@
 #pragma once
+#include <string>
 
 namespace common {
 	namespace string {
-		const char* upcase(char*);
+		std::string upcase(char*);
 	}
 }

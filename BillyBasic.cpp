@@ -3,16 +3,21 @@
 #include <cstdio>
 #include <algorithm>
 #include "common/string.h"
+#include <string>
+
+using std::string;
 
 char memory[3583];
-char input[80]; // max input length
 
 void read()
 {
+    char input[80]; // max input length
+    string uc_input;
+
     printf("READY.\n");
     gets_s(input);
-    input = common::string::upcase(input);
-    printf("3: %s\n", input);
+    uc_input = common::string::upcase(input);
+    printf(">>%s\n", uc_input.c_str());
     printf("?SYNTAX\n ERROR\n");
 }
 
