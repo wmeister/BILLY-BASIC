@@ -9,24 +9,45 @@
 #include "common/string.h"
 
 using std::string;
+using std::vector;
 
 char memory[3583];
+
+vector<string> arguments(string str)
+{
+
+}
+
+string interpret(string cmd, string raw_input)
+{
+    vector<string> args;
+
+    if (cmd == "PRINT")
+    {
+        args = arguments(raw_input);
+    }
+    else
+    {
+        printf("?SYNTAX\n ERROR\n");
+    }
+}
 
 void read()
 {
     char input[80]; // max input length
     string uc_input;
-    std::vector<string> words;
+    vector<string> words;
+    string cmd;
 
     printf("READY.\n");
 
     gets_s(input);
+
     boost::trim(input);
     uc_input = common::string::upcase(input);
     pystring::split(uc_input, words);
-    
-    
-    printf("?SYNTAX\n ERROR\n");
+    cmd = words[0];
+    interpret(cmd, uc_input);
 }
 
 int main()
