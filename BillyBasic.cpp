@@ -21,7 +21,7 @@ void read()
     printf("READY.\n");
 
     gets_s(input);
-    boost::trim(uc_input);
+    boost::trim(input);
     uc_input = common::string::upcase(input);
     pystring::split(uc_input, words);
     
