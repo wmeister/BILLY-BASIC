@@ -12,24 +12,33 @@ using std::vector;
 
 char memory[3583];
 
-vector<string> arguments(string str)
+void print(vector<string> args)
 {
-
+    printf("foo");
 }
 
-string interpret(char* input)
+vector<string> arguments(string str)
+{
+    vector<string> args;
+
+
+
+    return args;
+}
+
+void interpret(char* input)
 {
     vector<string> args;
     string uc_input;
     string cmd;
 
-    boost::trim(input);
     uc_input = common::string::upcase(input);
-    
+    boost::trim(uc_input);
 
-    if (cmd == "PRINT")
+    if (uc_input.find("PRINT") == 0)
     {
         args = arguments(uc_input);
+        print(args);
     }
     else
     {
