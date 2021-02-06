@@ -17,11 +17,14 @@ void print(vector<string> args)
     printf("foo");
 }
 
-vector<string> arguments(string str)
+vector<string> arguments(string input)
 {
     vector<string> args;
 
-
+    if (input.find("PRINT") == 0) {
+        input.replace(0, 5, "");
+        input;
+    }
 
     return args;
 }
