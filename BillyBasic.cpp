@@ -3,9 +3,8 @@
 #include <cstdio>
 #include <algorithm>
 #include <string>
-#include <pystring.h>
+#include <vector>
 #include <boost/algorithm/string/trim.hpp>
-
 #include "common/string.h"
 
 using std::string;
@@ -18,13 +17,19 @@ vector<string> arguments(string str)
 
 }
 
-string interpret(string cmd, string raw_input)
+string interpret(char* input)
 {
     vector<string> args;
+    string uc_input;
+    string cmd;
+
+    boost::trim(input);
+    uc_input = common::string::upcase(input);
+    
 
     if (cmd == "PRINT")
     {
-        args = arguments(raw_input);
+        args = arguments(uc_input);
     }
     else
     {
@@ -35,19 +40,10 @@ string interpret(string cmd, string raw_input)
 void read()
 {
     char input[80]; // max input length
-    string uc_input;
-    vector<string> words;
-    string cmd;
 
     printf("READY.\n");
-
     gets_s(input);
-
-    boost::trim(input);
-    uc_input = common::string::upcase(input);
-    pystring::split(uc_input, words);
-    cmd = words[0];
-    interpret(cmd, uc_input);
+    interpret(input);
 }
 
 int main()
