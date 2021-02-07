@@ -2,8 +2,10 @@
 #include <string>
 #include "string.h"
 
-namespace common {
-	namespace string {
+namespace common 
+{
+	namespace string 
+	{
 		using std::string;
 
 		string upcase(char* str) {
