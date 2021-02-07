@@ -16,13 +16,16 @@ namespace BillyBasicUnitTest
 	{
 	public:
 		
-		TEST_METHOD(TestArguments)
+		TEST_METHOD(TestArgumentsTrims)
 		{
 			vector<string> args = arguments(" PRINT1   ");
 			Assert::AreEqual(1, (int)args.size());
 			Assert::AreEqual("1", args[0].c_str());
+		}
 
-			args = arguments("PRINT 1");
+		TEST_METHOD(TestArgumentsWithOneInteger)
+		{
+			vector<string>args = arguments("PRINT 1");
 			Assert::AreEqual(1, (int)args.size());
 			Assert::AreEqual("1", args[0].c_str());
 		}
@@ -36,7 +39,7 @@ namespace BillyBasicUnitTest
 		{
 			char array[] = { 'A','B','C' };
 
-			Assert::IsTrue(array::containsp(array, 'A'));
+			Assert::IsTrue(common::array::containsp(array, 'A'));
 		}
 	};
 }
