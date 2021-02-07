@@ -22,12 +22,30 @@ vector<string> arguments(string input)
 {
     vector<string> args;
 
+    trim(input);
+    
     if (input.find("PRINT") == 0) {
-        input.replace(0, 5, "");
-        /*while (input.length() > 0)
+        if (input.length() == 5)
+            return args;
+        if (input.length() == 6)
         {
-            trim(input);
-        }*/
+            args.push_back(string(1, input[5]));
+            return args;
+        }
+        else
+        {
+            string chunk = "";
+            char cur = input[6];
+            char next = input[7];
+
+            input.replace(0, 5, "");
+
+            while (input.length() > 0)
+            {
+                char nums[] = { '1','2','3','4','5','6','7','8','9','0' };
+                
+            }
+        }
     }
 
     return args;
