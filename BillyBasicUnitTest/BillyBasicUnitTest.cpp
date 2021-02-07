@@ -4,6 +4,7 @@
 #include <vector>
 #include "../BillyBasic/BillyBasic.h"
 #include "../BillyBasic/common/string.h"
+#include "../BillyBasic/common/array.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using std::string;
@@ -29,6 +30,13 @@ namespace BillyBasicUnitTest
 		TEST_METHOD(TestStringUpcase)
 		{
 			Assert::AreEqual("PRINT", common::string::upcase("print").c_str());
+		}
+
+		TEST_METHOD(TestArrayContainsp)
+		{
+			char array[] = { 'A','B','C' };
+
+			Assert::IsTrue(array::containsp(array, 'A'));
 		}
 	};
 }
