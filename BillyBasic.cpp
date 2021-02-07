@@ -9,6 +9,7 @@
 
 using std::string;
 using std::vector;
+using boost::trim;
 
 char memory[3583];
 
@@ -23,7 +24,10 @@ vector<string> arguments(string input)
 
     if (input.find("PRINT") == 0) {
         input.replace(0, 5, "");
-        input;
+        /*while (input.length() > 0)
+        {
+            trim(input);
+        }*/
     }
 
     return args;
@@ -36,7 +40,7 @@ void interpret(char* input)
     string cmd;
 
     uc_input = common::string::upcase(input);
-    boost::trim(uc_input);
+    trim(uc_input);
 
     if (uc_input.find("PRINT") == 0)
     {
@@ -60,7 +64,7 @@ void read()
 
 int main()
 {
-    printf("**** BILLY BASIC V1 ****\n%i BYTES FREE\n", sizeof(memory)/sizeof(memory[0]));
+    printf("**** BILLY BASIC V1 ****\n%i BYTES FREE\n", (int)(sizeof(memory) / sizeof(memory[0])));
 
     for (;;)
     {
