@@ -67,7 +67,6 @@ vector<string> arguments(string input)
             }
             else
             {
-                printf("made it\n");
                 chunk.push_back(cur);
             }
 
