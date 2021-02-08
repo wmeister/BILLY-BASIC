@@ -6,10 +6,12 @@
 #include <vector>
 #include <boost/algorithm/string/trim.hpp>
 #include "common/string.h"
+#include "common/array.h"
 
 using std::string;
 using std::vector;
 using boost::trim;
+using common::array::containsp;
 
 char memory[3583];
 
@@ -27,25 +29,54 @@ vector<string> arguments(string input)
     if (input.find("PRINT") == 0) {
         if (input.length() == 5)
             return args;
-        if (input.length() == 6)
-        {
-            args.push_back(string(1, input[5]));
-            return args;
-        }
-        else
-        {
-            string chunk = "";
-            char cur = input[6];
-            char next = input[7];
 
-            input.replace(0, 5, "");
+        input.replace(0, 5, "");
 
-            while (input.length() > 0)
+        string chunk = "";
+        char cur = input[0];
+        bool quotedp = false;
+
+        while (!input.empty())
+        {
+            if (cur == '"')
             {
-                char nums[] = { '1','2','3','4','5','6','7','8','9','0' };
-                
+                chunk.push_back(cur);
+
+                if (quotedp)
+                {
+                    args.push_back(chunk);
+                    chunk = "";
+                    quotedp = false;
+                }
+                else
+                {
+                    quotedp = true;
+                }
             }
+            else if(cur == ' ') // whitespace
+            {
+                if (quotedp)
+                {
+                    chunk.push_back(cur);
+                }
+                else if (chunk != "")
+                {
+                    args.push_back(chunk);
+                    chunk = "";
+                }
+            }
+            else
+            {
+                printf("made it\n");
+                chunk.push_back(cur);
+            }
+
+            input.replace(0, 1, "");
+            if (input.length() > 0)
+                cur = input[0];
         }
+        if (!chunk.empty())
+            args.push_back(chunk);
     }
 
     return args;
