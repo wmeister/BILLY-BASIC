@@ -13,7 +13,7 @@ using std::vector;
 using boost::trim;
 using common::array::containsp;
 
-char memory[3583];
+char memory[38911];
 
 void print(vector<string> args)
 {
@@ -112,7 +112,7 @@ void read()
 
 int main()
 {
-    printf("**** BILLY BASIC V1 ****\n%i BYTES FREE\n", (int)(sizeof(memory) / sizeof(memory[0])));
+    printf("   **** BILLY BASIC V1 ****\n64K RAM SYSTEM  %i BYTES FREE\n", (int)(sizeof(memory) / sizeof(memory[0])));
 
     for (;;)
     {
