@@ -4,6 +4,6 @@ namespace common
 {
 	namespace array
 	{
-		bool containsp(char*, char);
+		bool containsp(char*, size_t, char);
 	}
 }
