@@ -8,4 +8,5 @@ std::vector<std::string> arguments(std::string);
 void eval(char*);
 void read();
 int main();
+void syntax_error()
 void BillyBasic();

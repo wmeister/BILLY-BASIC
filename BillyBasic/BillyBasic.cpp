@@ -15,9 +15,24 @@ using common::array::containsp;
 
 char memory[38911];
 
+void syntax_error()
+{
+    printf("?SYNTAX\n ERROR\n");
+}
+
 void print(vector<string> args)
 {
-    printf("foo");
+    for(string arg : args)
+    {
+        if(arg.find("\""))
+        {
+            if(arg[arg.length()-1] != '"')
+            {
+                syntax_error();
+                return;
+            }
+        }
+    }
 }
 
 vector<string> arguments(string input)
@@ -97,7 +112,7 @@ void eval(char* input)
     }
     else
     {
-        printf("?SYNTAX\n ERROR\n");
+        syntax_error();
     }
 }
 
