@@ -7,7 +7,7 @@ A BASIC interpreter like on Commodore 64
 
 `Copyright(C) 2021 William Meister ALL RIGHTS RESERVED`
 
-`URL: https://github.com/wmeister/BillyBasic`
+`URL: https://github.com/wmeister/BILLY-BASIC`
 
 This program is proprietary software, you CAN NOT redistribute it and/or
 modify it under ANY circumstances UNLESS you are the original author or
