@@ -3,11 +3,9 @@
 A BASIC interpreter like on Commodore 64
 ---
 ## License
->BILLY BASIC - A BASIC interpreter like on Commodore 64
-
->Copyright(C) 2021 William Meister ALL RIGHTS RESERVED
-
->URL: https://github.com/wmeister/BillyBasic
+`BILLY BASIC - A BASIC interpreter like on Commodore 64
+Copyright(C) 2021 William Meister ALL RIGHTS RESERVED
+URL: https://github.com/wmeister/BillyBasic`
 
 This program is proprietary software, you CAN NOT redistribute it and/or
 modify it under ANY circumstances UNLESS you are the original author or
