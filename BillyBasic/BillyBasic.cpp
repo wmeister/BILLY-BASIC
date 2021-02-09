@@ -81,7 +81,7 @@ vector<string> arguments(string input)
     return args;
 }
 
-void interpret(char* input)
+void eval(char* input)
 {
     vector<string> args;
     string uc_input;
@@ -107,7 +107,7 @@ void read()
 
     printf("READY.\n");
     gets_s(input);
-    interpret(input);
+    eval(input);
 }
 
 int main()
