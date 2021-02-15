@@ -50,5 +50,10 @@ namespace BillyBasicUnitTest
 			Assert::IsTrue(containsp(array, 3, 'B'));
 			Assert::IsTrue(containsp(array, 3, 'C'));
 		}
+
+		TEST_METHOD(TestTokenizeReturnsVectorOfTokens)
+		{
+			
+		}
 	};
 }
