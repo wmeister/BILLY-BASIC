@@ -34,6 +34,7 @@
 #include <boost/algorithm/string/trim.hpp>
 #include "common/string.h"
 #include "common/array.h"
+#include "BillyBasic.h"
 
 using std::string;
 using std::vector;
@@ -47,11 +48,35 @@ void syntax_error()
     printf("?SYNTAX\n ERROR\n");
 }
 
+// TODO unit test this
+vector<token> tokenize(vector<string> strings)
+{
+    vector<token> tokens;
+
+    for(string str : strings)
+    {
+        token tok;
+        tok.raw = str;
+        if(str[0] == '"' && str[str.length()-1] == '"')
+        {
+            tok.type = "string"
+        }
+        else 
+        {
+            // TODO iterate through str and check if all chars are numbers
+            tok.type = "invalid"
+        }
+        tokens.push_back(tok);
+    }
+    return tokens;
+}
+
 void print(vector<string> args)
 {
+    // check for incomplete strings
     for(string arg : args)
     {
-        if(arg.find("\""))
+        if(arg[0] == '"')
         {
             if(arg[arg.length()-1] != '"')
             {
@@ -59,6 +84,12 @@ void print(vector<string> args)
                 return;
             }
         }
+    }
+
+    // actually print the arguments
+    for(string arg : tokenize(args))
+    {
+        
     }
 }
 
