@@ -59,12 +59,12 @@ vector<token> tokenize(vector<string> strings)
         tok.raw = str;
         if(str[0] == '"' && str[str.length()-1] == '"')
         {
-            tok.type = "string"
+            tok.type = "string";
         }
         else 
         {
             // TODO iterate through str and check if all chars are numbers
-            tok.type = "invalid"
+            tok.type = "invalid";
         }
         tokens.push_back(tok);
     }
