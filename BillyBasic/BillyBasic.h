@@ -11,4 +11,4 @@ void read();
 int main();
 void syntax_error();
 void BillyBasic();
-std::vector<token> tokenize(vector<string>);
+std::vector<token> tokenize(std::vector<std::string>);
