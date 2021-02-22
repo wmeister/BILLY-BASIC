@@ -10,7 +10,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using std::string;
 using std::vector;
 using namespace common::array;
-using common::string::numberp();
+using common::string::numberp;
 
 namespace BillyBasicUnitTest
 {
@@ -57,12 +57,12 @@ namespace BillyBasicUnitTest
 			
 		}
 
-		TEST_METHOD(TestIsANumberReturnsTrueWithAStringOfNumbers)
+		TEST_METHOD(TestNumberpReturnsTrueWithAStringOfNumbers)
 		{
 			Assert::IsTrue(numberp("123"));
 		}
 
-		TEST_METHOD(TestIsANumberReturnsFalseWithAStringThatHasLetters)
+		TEST_METHOD(TestNumberpReturnsFalseWithAStringThatHasLetters)
 		{
 			Assert::IsFalse(numberp("1x2"));
 		}
