@@ -87,7 +87,7 @@ void print(vector<string> args)
     }
 
     // actually print the arguments
-    for(string arg : tokenize(args))
+    for(token arg : tokenize(args))
     {
         
     }
