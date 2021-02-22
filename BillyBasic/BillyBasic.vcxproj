@@ -141,10 +141,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BillyBasic.cpp" />
+    <ClCompile Include="common\array.cpp" />
     <ClCompile Include="common\string.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BillyBasic.h" />
+    <ClInclude Include="common\array.h" />
     <ClInclude Include="common\string.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
