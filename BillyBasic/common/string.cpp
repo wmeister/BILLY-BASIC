@@ -19,7 +19,8 @@ namespace common
 		{
 			for (char c : str)
 			{
-								
+				if (!common::array::containsp(const_cast<char*>("0123456789"), 10, c))
+					return false;
 			}
 			return true;
 		}
