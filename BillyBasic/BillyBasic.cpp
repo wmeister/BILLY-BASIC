@@ -28,7 +28,6 @@
 // BillyBasic.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 #include <cstdio>
-#include <algorithm>
 #include <string>
 #include <vector>
 #include <boost/algorithm/string/trim.hpp>
@@ -48,7 +47,6 @@ void syntax_error()
     printf("?SYNTAX\n ERROR\n");
 }
 
-// TODO unit test this
 vector<token> tokenize(vector<string> strings)
 {
     vector<token> tokens;
@@ -57,6 +55,7 @@ vector<token> tokenize(vector<string> strings)
     {
         token tok;
         tok.raw = str;
+    	
         if(str[0] == '"' && str[str.length()-1] == '"')
         {
             tok.type = "string";
@@ -69,6 +68,7 @@ vector<token> tokenize(vector<string> strings)
         {
             tok.type = "invalid";
         }
+    	
         tokens.push_back(tok);
     }
     return tokens;
@@ -76,24 +76,32 @@ vector<token> tokenize(vector<string> strings)
 
 void print(vector<string> args)
 {
-    // check for incomplete strings
-    for(string arg : args)
+    vector<token> tokens = tokenize(args);
+	
+    for(token tok : tokens)
     {
-        if(arg[0] == '"')
+        if(tok.type == "invalid")
         {
-            if(arg[arg.length()-1] != '"')
-            {
-                syntax_error();
-                return;
-            }
+            syntax_error();
+            return;
         }
     }
 
     // actually print the arguments
-    for(token arg : tokenize(args))
-    {
-        
-    }
+    printf(" ");
+	
+	for(token tok : tokens)
+	{
+		if(tok.type == "string")
+		{
+            printf("%s", tok.raw.substr(1, tok.raw.size() - 2).c_str());
+		}
+        else // integer
+        {
+            printf("%s", tok.raw.c_str());
+        }
+	}
+    printf("\n\n");
 }
 
 vector<string> arguments(string input)
