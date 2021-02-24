@@ -76,6 +76,12 @@ namespace BillyBasicUnitTest
 			Assert::AreEqual("3", tokens[2].raw.c_str());
 		}
 
+		TEST_METHOD(TestTokenizeReturnsInvalidTokenType)
+		{
+			vector<token> tokens = tokenize(vector<string>({ "\"invalid" }));
+			Assert::AreEqual("invalid", tokens[0].type.c_str());
+		}
+
 		TEST_METHOD(TestNumberpReturnsTrueWithAStringOfNumbers)
 		{
 			Assert::IsTrue(numberp("123"));
