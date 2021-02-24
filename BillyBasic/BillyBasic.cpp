@@ -61,9 +61,12 @@ vector<token> tokenize(vector<string> strings)
         {
             tok.type = "string";
         }
+        else if(common::string::numberp(str))
+        {
+            tok.type = "integer";
+        }
         else 
         {
-            // TODO iterate through str and check if all chars are numbers
             tok.type = "invalid";
         }
         tokens.push_back(tok);
