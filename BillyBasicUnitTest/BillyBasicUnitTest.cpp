@@ -50,11 +50,30 @@ namespace BillyBasicUnitTest
 			Assert::IsTrue(containsp(array, 3, 'A'));
 			Assert::IsTrue(containsp(array, 3, 'B'));
 			Assert::IsTrue(containsp(array, 3, 'C'));
+			Assert::IsFalse(containsp(array, 3, 'D'));
 		}
 
 		TEST_METHOD(TestTokenizeReturnsVectorOfTokens)
 		{
-			
+			vector<token> tokens = tokenize(vector<string>({"1", "\"two\"", "3"}));
+			Assert::IsTrue(std::is_same<decltype(tokens), vector<token>>::value);
+			Assert::AreEqual(3, (int)tokens.size());
+		}
+
+		TEST_METHOD(TestTokenizeReturnsCorrectTokenType)
+		{
+			vector<token> tokens = tokenize(vector<string>({ "1", "\"two\"", "3" }));
+			Assert::AreEqual("integer", tokens[0].type.c_str());
+			Assert::AreEqual("string", tokens[1].type.c_str());
+			Assert::AreEqual("integer", tokens[2].type.c_str());
+		}
+
+		TEST_METHOD(TestTokenizeReturnsCorrectTokenRaw)
+		{
+			vector<token> tokens = tokenize(vector<string>({ "1", "\"two\"", "3" }));
+			Assert::AreEqual("1", tokens[0].raw.c_str());
+			Assert::AreEqual("\"two\"", tokens[1].raw.c_str());
+			Assert::AreEqual("3", tokens[2].raw.c_str());
 		}
 
 		TEST_METHOD(TestNumberpReturnsTrueWithAStringOfNumbers)
