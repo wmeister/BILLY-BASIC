@@ -39,8 +39,23 @@ using std::string;
 using std::vector;
 using boost::trim;
 using common::array::containsp;
+using common::string::numberp;
 
 char memory[38911];
+
+bool var_namep(char* name)
+{
+    if (_countof(name) == 1)
+    {
+        if (name[0] == '$' || name[0] == '%')
+            return false;
+    }
+	
+    if (numberp(name))
+        return false;
+	
+	return true;
+}
 
 void syntax_error()
 {
