@@ -91,5 +91,24 @@ namespace BillyBasicUnitTest
 		{
 			Assert::IsFalse(numberp("1x2"));
 		}
+
+		TEST_METHOD(TestVar_namepReturnsFalseWithInvalidVariableNames)
+		{
+			Assert::IsFalse(var_namep("1"));
+			Assert::IsFalse(var_namep("$"));
+			Assert::IsFalse(var_namep("%"));
+			Assert::IsFalse(var_namep("PRINT"));
+			Assert::IsFalse(var_namep("XPRINTX"));
+		}
+		
+		TEST_METHOD(TestVar_namepReturnsTrueWithValidVariableNames)
+		{
+			Assert::IsTrue(var_namep("A$");
+			Assert::IsTrue(var_namep("MTH$");
+			Assert::IsTrue(var_namep("K%");
+			Assert::IsTrue(var_namep("CNT%");
+			Assert::IsTrue(var_namep("FP");
+			Assert::IsTrue(var_namep("SUM");
+		}
 	};
 }
