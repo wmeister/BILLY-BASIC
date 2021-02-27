@@ -12,3 +12,4 @@ int main();
 void syntax_error();
 void BillyBasic();
 std::vector<token> tokenize(std::vector<std::string>);
+bool var_namep(char*);
