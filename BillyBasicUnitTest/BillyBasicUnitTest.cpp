@@ -103,12 +103,24 @@ namespace BillyBasicUnitTest
 		
 		TEST_METHOD(TestVar_namepReturnsTrueWithValidVariableNames)
 		{
-			Assert::IsTrue(var_namep("A$");
-			Assert::IsTrue(var_namep("MTH$");
-			Assert::IsTrue(var_namep("K%");
-			Assert::IsTrue(var_namep("CNT%");
-			Assert::IsTrue(var_namep("FP");
-			Assert::IsTrue(var_namep("SUM");
+			Assert::IsTrue(var_namep("A$"));
+			Assert::IsTrue(var_namep("MTH$"));
+			Assert::IsTrue(var_namep("K%"));
+			Assert::IsTrue(var_namep("CNT%"));
+			Assert::IsTrue(var_namep("FP"));
+			Assert::IsTrue(var_namep("SUM"));
+		}
+
+		TEST_METHOD(TestLetterspReturnsTrueWithLetters)
+		{
+			Assert::IsTrue(lettersp("abc"));
+			Assert::IsTrue(lettersp("XYZ"));
+		}
+
+		TEST_METHOD(TestLetterspReturnsFalseWithNumbers)
+		{
+			Assert::IsFalse(lettersp("123"));
+			Assert::IsFalse(lettersp("12three"));
 		}
 	};
 }
