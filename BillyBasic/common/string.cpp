@@ -9,7 +9,26 @@ namespace common
 	{
 		using std::string;
 
-		string upcase(char* str) {
+		bool lettersp(char* str)
+		{
+			for (size_t i = 0; i < _countof(str); i++)
+			{
+				if(str[i] == 'A'
+					|| str[i] == 'a')
+				{
+					continue;
+				}
+				else
+				{
+					return false;
+				}
+			}
+
+			return true;
+		}
+		
+		string upcase(char* str)
+		{
 			string uc_str = string(str);
 			std::transform(uc_str.begin(), uc_str.end(), uc_str.begin(), ::toupper);
 			return uc_str;
