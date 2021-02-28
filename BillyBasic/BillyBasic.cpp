@@ -38,23 +38,42 @@
 using std::string;
 using std::vector;
 using boost::trim;
-using common::array::containsp;
-using common::string::numberp;
+using namespace common::array;
+using namespace common::string;
 
 char memory[38911];
 
 bool var_namep(char* name)
 {
-    if (_countof(name) == 1)
+    string name_string = string(name);
+	
+    if (name[0] == '$' || name[0] == '%')
+		return false;
+    
+    if (numberp(name))
+        return false;
+
+    // TODO keep this list up to date
+    for (string keyword : {"PRINT"})
     {
-        if (name[0] == '$' || name[0] == '%')
+        if (string(upcase(const_cast<char*>(name_string.c_str()))).find(keyword) != string::npos)
             return false;
     }
 	
-    if (numberp(name))
-        return false;
+    if (alphanump(name, name_string.length()))
+        return true;
 	
-	return true;
+    if (name_string.length() >= 2)
+    {
+        if ((name_string[name_string.length()-1] == '%' || name_string[name_string.length()-1] == '$')
+            && alphanump(const_cast<char*>(name_string.substr(0, name_string.length()-1).c_str()), name_string.length()-1))
+            return true;
+    }
+
+    if (alphanump(name, name_string.length()))
+        return true;      
+	
+	return false;
 }
 
 void syntax_error()
