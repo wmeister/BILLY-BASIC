@@ -159,6 +159,7 @@
   <ItemGroup>
     <ClCompile Include="..\BillyBasic\BillyBasic.cpp" />
     <ClCompile Include="..\BillyBasic\common\array.cpp" />
+    <ClCompile Include="..\BillyBasic\common\character.cpp" />
     <ClCompile Include="..\BillyBasic\common\string.cpp" />
     <ClCompile Include="BillyBasicUnitTest.cpp" />
     <ClCompile Include="pch.cpp">
