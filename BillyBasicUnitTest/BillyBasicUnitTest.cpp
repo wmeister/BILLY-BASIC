@@ -5,12 +5,13 @@
 #include "../BillyBasic/BillyBasic.h"
 #include "../BillyBasic/common/string.h"
 #include "../BillyBasic/common/array.h"
+#include "../BillyBasic/common/character.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using std::string;
 using std::vector;
 using namespace common::array;
-using common::string::numberp;
+using namespace common::string;
 
 namespace BillyBasicUnitTest
 {
@@ -113,14 +114,39 @@ namespace BillyBasicUnitTest
 
 		TEST_METHOD(TestLetterspReturnsTrueWithLetters)
 		{
-			Assert::IsTrue(lettersp("abc"));
-			Assert::IsTrue(lettersp("XYZ"));
+			Assert::IsTrue(lettersp("abc", 3));
+			Assert::IsTrue(lettersp("XYZ", 3));
 		}
 
 		TEST_METHOD(TestLetterspReturnsFalseWithNumbers)
 		{
-			Assert::IsFalse(lettersp("123"));
-			Assert::IsFalse(lettersp("12three"));
+			Assert::IsFalse(lettersp("123", 3));
+			Assert::IsFalse(lettersp("12three", 7));
+		}
+
+		TEST_METHOD(TestCommonCharacterNumberpReturnsTrueWith0)
+		{
+			Assert::IsTrue(common::character::numberp('0'));
+		}
+
+		TEST_METHOD(TestCommonCharacterNumberpReturnsFalseWithA)
+		{
+			Assert::IsFalse(common::character::numberp(('A')));
+		}
+
+		TEST_METHOD(TestAlphanumpReturnsTrueWithValidInput)
+		{
+			Assert::IsTrue(alphanump("aaa", 3));
+			Assert::IsTrue(alphanump("111", 3));
+			Assert::IsTrue(alphanump("a1a", 3));
+			Assert::IsTrue(alphanump("1a1", 3));
+		}
+
+		TEST_METHOD(TestAlphanumpReturnsFalseWithInvalidInput)
+		{
+			Assert::IsFalse(alphanump("%", 1));
+			Assert::IsFalse(alphanump("$", 1));
+			Assert::IsFalse(alphanump("@", 1));
 		}
 	};
 }
