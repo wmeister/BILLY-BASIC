@@ -33,6 +33,9 @@
     <ClCompile Include="..\BillyBasic\common\array.cpp">
       <Filter>Source Files\common</Filter>
     </ClCompile>
+    <ClCompile Include="..\BillyBasic\common\character.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
